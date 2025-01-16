@@ -22,12 +22,14 @@ export const SigninComponent = () => {
 
                 <br /><br />
                 <button className="btn p-3 " onClick={ async() => {
-                    const response = await axios.post("http://localhost:3000/Api/user", {
+                    const response = await axios.post("http://localhost:3000/Api/signin", {
                         username,
                         password
                     });
 
-                    console.log(response.data.message);
+                    localStorage.setItem("token",response.data.token);
+
+                    // console.log(response.data.message);
                     setUsernmae("");
                     setPassword("");
                     
